@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% block title %}New Play{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="content-wrapper">
+        <h1>Update Play</h1>
+        <p>Update existing play to playbook database.</p>
+        <div class="sidebar-divider"></div>
+        <form>
+            <div class="form-group">
+                <label for="ruleId">Rule ID</label>
+                <input type="text" class="form-control" id="ruleId" name="rule.id">
+            </div>
+            <div class="form-group">
+                <label for="ruleLevel">Rule Level</label>
+                <input type="number" class="form-control" id="ruleLevel" name="rule.level">
+            </div>
+            <div class="form-group">
+                <label for="ruleDescription">Rule Description</label>
+                <input type="text" class="form-control" id="ruleDescription" name="rule.description">
+            </div>
+            <div class="form-group">
+                <div id="mitreIdContainer">
+                    <!-- Dynamic MITRE ID inputs will be added here -->
+                    <button type="button" class="btn btn-link" onclick="addMitreIdInput()">+ Add MITRE ID</button>
+                </div>
+            </div>
+            <div class="form-group">
+                <div id="mitreTacticContainer">
+                    <!-- Dynamic MITRE Tactic inputs will be added here -->
+                    <button type="button" class="btn btn-link" onclick="addMitreTacticInput()">+ Add MITRE Tactic</button>
+                </div>
+            </div>
+            <div class="form-group">
+                <div id="mitreTechniqueContainer">
+                    <!-- Dynamic MITRE Technique inputs will be added here -->
+                    <button type="button" class="btn btn-link" onclick="addMitreTechniqueInput()">+ Add MITRE Technique</button>
+                </div>
+            </div>
+            <!-- Similar containers and buttons for MITRE Tactic and Technique -->
+            <div class="form-group">
+                <label for="remediation">Remediation</label>
+                <textarea class="form-control" id="remediation" name="remediation"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="significantFindings">significant Findings</label>
+                <textarea class="form-control" id="significantFinding" name="significantFinding"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    function addMitreIdInput() {
+        var container = document.getElementById('mitreIdContainer');
+        var input = document.createElement('input');
+        input.type = 'text';
+        input.className = 'form-control';
+        input.name = 'mitre.id[]';
+        container.appendChild(input);
+    }
+
+    function addMitreTacticInput() {
+        var container = document.getElementById('mitreTacticContainer');
+        var input = document.createElement('input');
+        input.type = 'text';
+        input.className = 'form-control';
+        input.name = 'mitre.tactic[]';
+        container.appendChild(input);
+    }
+
+    function addMitreTechniqueInput() {
+        var container = document.getElementById('mitreTechniqueContainer');
+        var input = document.createElement('input');
+        input.type = 'text';
+        input.className = 'form-control';
+        input.name = 'mitre.technique[]';
+        container.appendChild(input);
+    }
+</script>
+{% endblock %}

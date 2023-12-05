@@ -1,0 +1,60 @@
+body {
+  font-family: Arial, sans-serif;
+  font-size: 1em;
+}
+.sidebar {
+  background-color: black !important;
+  color: white;
+  min-height: 100vh; /* Full height */
+  padding: 10px;
+}
+.sidebar a {
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  display: block;
+  text-align: center;
+  font-weight: bold;
+  margin: 5px;
+}
+.sidebar a:hover {
+  background-color: red;
+  color: white;
+  border-radius: 25px;
+  font-size: 1.2em;
+}
+.sidebar a.active {
+  background-color: red;
+  color: white;
+  border-radius: 25px;
+  font-size: 1.2em;
+}
+.sidebar-logo {
+  padding: 10px;
+  text-align: center;
+  background-color: seashell;
+  margin-bottom: 10px;
+}
+.sidebar-logo img {
+  max-width: 100%;
+  height: auto;
+}
+.content-wrapper {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.title {
+  text-align: center;
+  
+}
+h1 {
+  font-weight: bold;
+  font-size: 3.0em;
+}
+.sidebar-divider {
+    border-bottom: 1px dashed #ddd; 
+    margin: 10px 0; /* Adjust spacing as needed */
+}
