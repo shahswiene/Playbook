@@ -1,53 +1,89 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}My Flask App{% endblock %}</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
+    <!-- Custom Styles -->
+    <style>
+
+    </style>
 </head>
 
 <body>
-    <div class="container-fluid">
-        <div class="row">
-            <nav class="col-md-2 d-none d-md-block bg-light sidebar">
-                <div class="sidebar-divider"></div>
-                <div class="sidebar-logo">
-                    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo">
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <!-- Bars Icon on the Left -->
+            <div class="col-4 bars" onclick="toggleNav()">
+                <i class="fas fa-bars navbar-icon"></i>
+            </div>
+
+            <!-- Logo in the Middle -->
+            <div class="col-4 logo-container">
+                <a href="#" class="logo">
+                    <img class="logo" src="{{ url_for('static', filename='images/logo.png') }}" alt="Company Logo"
+                        style="height: 50px; background-color: white; border-radius: 50px; padding: 10px;">
+                </a>
+            </div>
+
+            <!-- User Information on the right -->
+            <div class="col-4 user-info">
+                <div class="d-flex align-items-center">
+                    <!-- Extra column to right (add content if required)-->
                 </div>
-                <div class="sidebar-divider"></div>
-                <div class="sidebar-sticky">
-                    <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a class="nav-link {% if request.path == url_for('home') %}active{% endif %}"
-                                href="{{ url_for('home') }}">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link {% if request.path == url_for('new_play') %}active{% endif %}"
-                                href="{{ url_for('new_play') }}">New Play</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link {% if request.path == url_for('update_play') %}active{% endif %}"
-                                href="{{ url_for('update_play') }}">Update Play</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link {% if request.path == url_for('playbook') %}active{% endif %}"
-                                href="{{ url_for('playbook') }}">Playbook</a>
-                        </li>
-                        <!-- More links can be added here -->
-                    </ul>
-                </div>
-            </nav>
-            <main role="main" class="col-md-10">
-                {% block content %}
-                <!-- Content will be inserted here -->
-                {% endblock %}
-            </main>
-        </div>
+            </div>
+    </nav>
+    <!-- Sidebar -->
+    <div id="sidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+        <!-- Add your sidebar links here -->
+        <a class="nav-link {% if request.path == url_for('home') %}active{% endif %}"
+            href="{{ url_for('home') }}">Home</a>
+
+        <a class="nav-link {% if request.path == url_for('new_play') %}active{% endif %}"
+            href="{{ url_for('new_play') }}">New Play</a>
+
+        <a class="nav-link {% if request.path == url_for('playbook') %}active{% endif %}"
+            href="{{ url_for('playbook') }}">Playbook</a>
     </div>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <main role="main" class="col-md-10">
+        {% block content %}
+        <!-- Content will be inserted here -->
+        {% endblock %}
+    </main>
+
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <!-- Include DataTables script here -->
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+
+
 </body>
+
+<script>
+    // Function to toggle the sidebar
+    function toggleNav() {
+        var sidebar = document.getElementById("sidebar");
+        if (sidebar.style.width === "250px") {
+            sidebar.style.width = "0";
+        } else {
+            sidebar.style.width = "250px";
+        }
+    }
+    // Function to close the sidebar
+    function closeNav() {
+        document.getElementById("sidebar").style.width = "0";
+    }
+</script>
 
 </html>

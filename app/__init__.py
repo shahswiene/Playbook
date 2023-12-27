@@ -1,4 +1,11 @@
-from flask import Flask, render_template, request, redirect, url_for
-app = Flask(__name__)
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
 
-from app import routes
+app = Flask(__name__)
+app.config.from_object('config')  # Ensure you have this line to load configurations
+
+db = SQLAlchemy(app)
+
+
+
+from app import routes, models  # Import models after initializing db

@@ -1,60 +1,170 @@
 body {
-  font-family: Arial, sans-serif;
-  font-size: 1em;
-}
-.sidebar {
-  background-color: black !important;
-  color: white;
-  min-height: 100vh; /* Full height */
-  padding: 10px;
-}
-.sidebar a {
-  color: white;
-  text-decoration: none;
-  padding: 10px;
-  display: block;
-  text-align: center;
-  font-weight: bold;
-  margin: 5px;
-}
-.sidebar a:hover {
-  background-color: red;
-  color: white;
-  border-radius: 25px;
-  font-size: 1.2em;
-}
-.sidebar a.active {
-  background-color: red;
-  color: white;
-  border-radius: 25px;
-  font-size: 1.2em;
-}
-.sidebar-logo {
-  padding: 10px;
-  text-align: center;
-  background-color: seashell;
-  margin-bottom: 10px;
-}
-.sidebar-logo img {
-  max-width: 100%;
-  height: auto;
-}
-.content-wrapper {
-  border: 1px solid #ccc;
-  padding: 10px;
-  margin: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  margin: 0;
+  padding: 0;
 }
 
-.title {
-  text-align: center;
-  
+.navbar {
+  position: fixed; /* Keep the navbar fixed at the top */
+  top: 0;
+  background: linear-gradient(to top, #000000, #333333);
+  color: white;
+  width: 100%; /* Set navbar width to 100% */
+  z-index: 1; /* Stay on top of everything */
 }
+
+.navbar-icon {
+  color: white;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+}
+
+.logo img {
+  height: 60px;
+  margin: 5px;
+}
+
+.user-info {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  background-color: #ddd;
+  border-radius: 50%;
+}
+
+.user-details {
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.user-name {
+  margin-bottom: 0;
+}
+
+.user-position {
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.bars i {
+  font-size: 1.5rem;
+}
+
+.bars:hover .navbar-icon {
+  color: red;
+  cursor: pointer;
+}
+
+.sidebar {
+  height: calc(100%);
+  /* Adjusted for the height of the navbar */
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 75px;
+  /* Set this to the height of your navbar */
+  left: 0;
+  background: linear-gradient(to bottom, #000000, #333333);
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 20px;
+  /* Adjust padding if needed */
+}
+
+.sidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: white;
+  display: block;
+  transition: 0.3s;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.sidebar a:hover {
+  color: red;
+}
+
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.content-wrapper {
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin: 100px auto; /* Center the wrapper */
+  max-width: 600px; /* Reduce and control the width */
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  background-color: #f8f8f8;
+  border-radius: 10px;
+  margin:90px 0px 0 600px;
+}
+
+.content-wrapperr {
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin: 100px auto; /* Center the wrapper */
+  max-width: 1500px; /* Reduce and control the width */
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  background-color: #f8f8f8;
+  border-radius: 10px;
+  margin:90px 0px 0 200px;
+}
+
+.title h1 {
+  color: #444; /* Darker color for titles */
+}
+
 h1 {
   font-weight: bold;
-  font-size: 3.0em;
+  font-size: 3em;
 }
 .sidebar-divider {
-    border-bottom: 1px dashed #ddd; 
-    margin: 10px 0; /* Adjust spacing as needed */
+  border-bottom: 1px dashed #ddd;
+  margin: 10px 0; /* Adjust spacing as needed */
 }
+
+.main {
+  /* Add this class to your main content element */
+  text-align: center; /* Center the content inside the main element */
+  width: 100%; /* Set the width of the main content to 100% */
+  max-width: 1200px; /* Set a max-width to avoid it being too wide */
+}
+
+.lead {
+  color: #555;
+}
+
+.mitre-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.mitre-container .form-group {
+  flex: 1;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group textarea {
+  max-width: 400px; /* Adjust as needed */
+  width: 100%; /* Make input responsive */
+  margin: auto; /* Center the input fields */
+}
+
+.form-group {
+  margin-bottom: 15px; /* Add more space between form fields */
+}
+
